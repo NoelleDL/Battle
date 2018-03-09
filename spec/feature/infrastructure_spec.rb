@@ -1,13 +1,19 @@
-require_relative '../../app.rb'
-require 'capybara/rspec'
-require 'capybara'
+
 
 feature "Homepage" do
   scenario "user inputs names" do
-    visit '/'
-    fill_in "Player1", :with => "Noelle"
-    fill_in "Player2", :with => "Tom"
-    click_button "Submit"
+    sign_in_and_play
     expect(page).to have_text("Noelle Tom")
+  end
+
+  scenario "displays player score" do
+    sign_in_and_play
+    expect(page).to have_text("100")
+  end
+
+  scenario "displays confirmation when Player2 is attacked" do
+    sign_in_and_play
+    click_button "Attack!!!"
+    expect(page).to have_content("Player attacked!")
   end
 end

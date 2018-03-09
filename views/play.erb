@@ -1,1 +1,5 @@
-<h1><%= @message %> </h1>
+<h2><%= "#{session[:Player1]}" %> </h2>
+<h2><%= "#{session[:Player2]}: #{session[:Player2_score]}" %></h2>
+<form action='/attack'>
+  <input type='submit' value="ATTACK!!!">
+</form>
