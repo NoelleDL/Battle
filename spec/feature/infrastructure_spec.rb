@@ -13,7 +13,7 @@ feature "Homepage" do
 
   scenario "displays confirmation when Player2 is attacked" do
     sign_in_and_play
-    click_button "Attack!!!"
-    expect(page).to have_content("Player attacked!")
+    click_button "ATTACK!!!"
+    expect(page).to have_content("Noelle ATTACKED!!! Tom")
   end
 end

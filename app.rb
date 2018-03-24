@@ -9,12 +9,14 @@ enable :sessions
   end
 
   post '/names' do
-    session[:Player1] = params[:Player1]
-    session[:Player2] = params[:Player2]
+    $player1 = Player.new(params[:Player1])
+    $player2 = Player.new(params[:Player2])
     redirect "/play"
   end
 
   get '/play' do
+    @player1 = $player1
+    @player2 = $player2
     session[:Player2_score] = 100
     erb :play
   end
